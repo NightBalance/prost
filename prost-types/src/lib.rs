@@ -11,6 +11,11 @@
 
 #![cfg_attr(not(feature = "std"), no_std)]
 
+pub mod alligator
+{
+    pub use prost as proto_google_08;
+}
+
 use core::convert::TryFrom;
 use core::i32;
 use core::i64;

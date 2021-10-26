@@ -131,18 +131,18 @@ impl Field {
     pub fn encode(&self, ident: TokenStream) -> TokenStream {
         let tag = self.tag;
         let key_mod = self.key_ty.module();
-        let ke = quote!(::prost::encoding::#key_mod::encode);
-        let kl = quote!(::prost::encoding::#key_mod::encoded_len);
+        let ke = quote!(crate::alligator::proto_google_08::encoding::#key_mod::encode);
+        let kl = quote!(crate::alligator::proto_google_08::encoding::#key_mod::encoded_len);
         let module = self.map_ty.module();
         match &self.value_ty {
             ValueTy::Scalar(scalar::Ty::Enumeration(ty)) => {
                 let default = quote!(#ty::default() as i32);
                 quote! {
-                    ::prost::encoding::#module::encode_with_default(
+                    crate::alligator::proto_google_08::encoding::#module::encode_with_default(
                         #ke,
                         #kl,
-                        ::prost::encoding::int32::encode,
-                        ::prost::encoding::int32::encoded_len,
+                        crate::alligator::proto_google_08::encoding::int32::encode,
+                        crate::alligator::proto_google_08::encoding::int32::encoded_len,
                         &(#default),
                         #tag,
                         &#ident,
@@ -152,10 +152,10 @@ impl Field {
             }
             ValueTy::Scalar(value_ty) => {
                 let val_mod = value_ty.module();
-                let ve = quote!(::prost::encoding::#val_mod::encode);
-                let vl = quote!(::prost::encoding::#val_mod::encoded_len);
+                let ve = quote!(crate::alligator::proto_google_08::encoding::#val_mod::encode);
+                let vl = quote!(crate::alligator::proto_google_08::encoding::#val_mod::encoded_len);
                 quote! {
-                    ::prost::encoding::#module::encode(
+                    crate::alligator::proto_google_08::encoding::#module::encode(
                         #ke,
                         #kl,
                         #ve,
@@ -167,11 +167,11 @@ impl Field {
                 }
             }
             ValueTy::Message => quote! {
-                ::prost::encoding::#module::encode(
+                crate::alligator::proto_google_08::encoding::#module::encode(
                     #ke,
                     #kl,
-                    ::prost::encoding::message::encode,
-                    ::prost::encoding::message::encoded_len,
+                    crate::alligator::proto_google_08::encoding::message::encode,
+                    crate::alligator::proto_google_08::encoding::message::encoded_len,
                     #tag,
                     &#ident,
                     buf,
@@ -184,15 +184,15 @@ impl Field {
     /// into the map.
     pub fn merge(&self, ident: TokenStream) -> TokenStream {
         let key_mod = self.key_ty.module();
-        let km = quote!(::prost::encoding::#key_mod::merge);
+        let km = quote!(crate::alligator::proto_google_08::encoding::#key_mod::merge);
         let module = self.map_ty.module();
         match &self.value_ty {
             ValueTy::Scalar(scalar::Ty::Enumeration(ty)) => {
                 let default = quote!(#ty::default() as i32);
                 quote! {
-                    ::prost::encoding::#module::merge_with_default(
+                    crate::alligator::proto_google_08::encoding::#module::merge_with_default(
                         #km,
-                        ::prost::encoding::int32::merge,
+                        crate::alligator::proto_google_08::encoding::int32::merge,
                         #default,
                         &mut #ident,
                         buf,
@@ -202,13 +202,13 @@ impl Field {
             }
             ValueTy::Scalar(value_ty) => {
                 let val_mod = value_ty.module();
-                let vm = quote!(::prost::encoding::#val_mod::merge);
-                quote!(::prost::encoding::#module::merge(#km, #vm, &mut #ident, buf, ctx))
+                let vm = quote!(crate::alligator::proto_google_08::encoding::#val_mod::merge);
+                quote!(crate::alligator::proto_google_08::encoding::#module::merge(#km, #vm, &mut #ident, buf, ctx))
             }
             ValueTy::Message => quote! {
-                ::prost::encoding::#module::merge(
+                crate::alligator::proto_google_08::encoding::#module::merge(
                     #km,
-                    ::prost::encoding::message::merge,
+                    crate::alligator::proto_google_08::encoding::message::merge,
                     &mut #ident,
                     buf,
                     ctx,
@@ -221,15 +221,15 @@ impl Field {
     pub fn encoded_len(&self, ident: TokenStream) -> TokenStream {
         let tag = self.tag;
         let key_mod = self.key_ty.module();
-        let kl = quote!(::prost::encoding::#key_mod::encoded_len);
+        let kl = quote!(crate::alligator::proto_google_08::encoding::#key_mod::encoded_len);
         let module = self.map_ty.module();
         match &self.value_ty {
             ValueTy::Scalar(scalar::Ty::Enumeration(ty)) => {
                 let default = quote!(#ty::default() as i32);
                 quote! {
-                    ::prost::encoding::#module::encoded_len_with_default(
+                    crate::alligator::proto_google_08::encoding::#module::encoded_len_with_default(
                         #kl,
-                        ::prost::encoding::int32::encoded_len,
+                        crate::alligator::proto_google_08::encoding::int32::encoded_len,
                         &(#default),
                         #tag,
                         &#ident,
@@ -238,13 +238,13 @@ impl Field {
             }
             ValueTy::Scalar(value_ty) => {
                 let val_mod = value_ty.module();
-                let vl = quote!(::prost::encoding::#val_mod::encoded_len);
-                quote!(::prost::encoding::#module::encoded_len(#kl, #vl, #tag, &#ident))
+                let vl = quote!(crate::alligator::proto_google_08::encoding::#val_mod::encoded_len);
+                quote!(crate::alligator::proto_google_08::encoding::#module::encoded_len(#kl, #vl, #tag, &#ident))
             }
             ValueTy::Message => quote! {
-                ::prost::encoding::#module::encoded_len(
+                crate::alligator::proto_google_08::encoding::#module::encoded_len(
                     #kl,
-                    ::prost::encoding::message::encoded_len,
+                    crate::alligator::proto_google_08::encoding::message::encoded_len,
                     #tag,
                     &#ident,
                 )

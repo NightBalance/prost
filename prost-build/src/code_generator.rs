@@ -174,7 +174,7 @@ impl<'a> CodeGenerator<'a> {
         self.append_type_attributes(&fq_message_name);
         self.push_indent();
         self.buf
-            .push_str("#[derive(Clone, PartialEq, ::prost::Message)]\n");
+            .push_str("#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]\n");
         self.push_indent();
         self.buf.push_str("pub struct ");
         self.buf.push_str(&to_upper_camel(&message_name));
@@ -385,12 +385,12 @@ impl<'a> CodeGenerator<'a> {
         self.buf.push_str(&to_snake(field.name()));
         self.buf.push_str(": ");
         if repeated {
-            self.buf.push_str("::prost::alloc::vec::Vec<");
+            self.buf.push_str("crate::alligator::proto_google_08::alloc::vec::Vec<");
         } else if optional {
             self.buf.push_str("::core::option::Option<");
         }
         if boxed {
-            self.buf.push_str("::prost::alloc::boxed::Box<");
+            self.buf.push_str("crate::alligator::proto_google_08::alloc::boxed::Box<");
         }
         self.buf.push_str(&ty);
         if boxed {
@@ -497,7 +497,7 @@ impl<'a> CodeGenerator<'a> {
         self.append_type_attributes(&oneof_name);
         self.push_indent();
         self.buf
-            .push_str("#[derive(Clone, PartialEq, ::prost::Oneof)]\n");
+            .push_str("#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Oneof)]\n");
         self.push_indent();
         self.buf.push_str("pub enum ");
         self.buf.push_str(&to_upper_camel(oneof.name()));
@@ -538,7 +538,7 @@ impl<'a> CodeGenerator<'a> {
 
             if boxed {
                 self.buf.push_str(&format!(
-                    "{}(::prost::alloc::boxed::Box<{}>),\n",
+                    "{}(crate::alligator::proto_google_08::alloc::boxed::Box<{}>),\n",
                     to_upper_camel(field.name()),
                     ty
                 ));
@@ -593,7 +593,7 @@ impl<'a> CodeGenerator<'a> {
         self.append_type_attributes(&fq_enum_name);
         self.push_indent();
         self.buf.push_str(
-            "#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]\n",
+            "#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, crate::alligator::proto_google_08::Enumeration)]\n",
         );
         self.push_indent();
         self.buf.push_str("#[repr(i32)]\n");
@@ -746,7 +746,7 @@ impl<'a> CodeGenerator<'a> {
             Type::Int32 | Type::Sfixed32 | Type::Sint32 | Type::Enum => String::from("i32"),
             Type::Int64 | Type::Sfixed64 | Type::Sint64 => String::from("i64"),
             Type::Bool => String::from("bool"),
-            Type::String => String::from("::prost::alloc::string::String"),
+            Type::String => String::from("crate::alligator::proto_google_08::alloc::string::String"),
             Type::Bytes => self
                 .config
                 .bytes_type
@@ -1011,7 +1011,7 @@ impl MapType {
     fn rust_type(&self) -> &'static str {
         match self {
             MapType::HashMap => "::std::collections::HashMap",
-            MapType::BTreeMap => "::prost::alloc::collections::BTreeMap",
+            MapType::BTreeMap => "crate::alligator::proto_google_08::alloc::collections::BTreeMap",
         }
     }
 }
@@ -1028,8 +1028,8 @@ impl BytesType {
     /// The fully-qualified Rust type corresponding to the bytes type.
     fn rust_type(&self) -> &'static str {
         match self {
-            BytesType::Vec => "::prost::alloc::vec::Vec<u8>",
-            BytesType::Bytes => "::prost::bytes::Bytes",
+            BytesType::Vec => "crate::alligator::proto_google_08::alloc::vec::Vec<u8>",
+            BytesType::Bytes => "crate::alligator::proto_google_08::bytes::Bytes",
         }
     }
 }

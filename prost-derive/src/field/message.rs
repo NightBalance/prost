@@ -78,15 +78,15 @@ impl Field {
         match self.label {
             Label::Optional => quote! {
                 if let Some(ref msg) = #ident {
-                    ::prost::encoding::message::encode(#tag, msg, buf);
+                    crate::alligator::proto_google_08::encoding::message::encode(#tag, msg, buf);
                 }
             },
             Label::Required => quote! {
-                ::prost::encoding::message::encode(#tag, &#ident, buf);
+                crate::alligator::proto_google_08::encoding::message::encode(#tag, &#ident, buf);
             },
             Label::Repeated => quote! {
                 for msg in &#ident {
-                    ::prost::encoding::message::encode(#tag, msg, buf);
+                    crate::alligator::proto_google_08::encoding::message::encode(#tag, msg, buf);
                 }
             },
         }
@@ -95,16 +95,16 @@ impl Field {
     pub fn merge(&self, ident: TokenStream) -> TokenStream {
         match self.label {
             Label::Optional => quote! {
-                ::prost::encoding::message::merge(wire_type,
+                crate::alligator::proto_google_08::encoding::message::merge(wire_type,
                                                  #ident.get_or_insert_with(Default::default),
                                                  buf,
                                                  ctx)
             },
             Label::Required => quote! {
-                ::prost::encoding::message::merge(wire_type, #ident, buf, ctx)
+                crate::alligator::proto_google_08::encoding::message::merge(wire_type, #ident, buf, ctx)
             },
             Label::Repeated => quote! {
-                ::prost::encoding::message::merge_repeated(wire_type, #ident, buf, ctx)
+                crate::alligator::proto_google_08::encoding::message::merge_repeated(wire_type, #ident, buf, ctx)
             },
         }
     }
@@ -113,13 +113,13 @@ impl Field {
         let tag = self.tag;
         match self.label {
             Label::Optional => quote! {
-                #ident.as_ref().map_or(0, |msg| ::prost::encoding::message::encoded_len(#tag, msg))
+                #ident.as_ref().map_or(0, |msg| crate::alligator::proto_google_08::encoding::message::encoded_len(#tag, msg))
             },
             Label::Required => quote! {
-                ::prost::encoding::message::encoded_len(#tag, &#ident)
+                crate::alligator::proto_google_08::encoding::message::encoded_len(#tag, &#ident)
             },
             Label::Repeated => quote! {
-                ::prost::encoding::message::encoded_len_repeated(#tag, &#ident)
+                crate::alligator::proto_google_08::encoding::message::encoded_len_repeated(#tag, &#ident)
             },
         }
     }

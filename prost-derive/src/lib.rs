@@ -172,9 +172,9 @@ fn try_message(input: TokenStream) -> Result<TokenStream, Error> {
     };
 
     let expanded = quote! {
-        impl #impl_generics ::prost::Message for #ident #ty_generics #where_clause {
+        impl #impl_generics crate::alligator::proto_google_08::Message for #ident #ty_generics #where_clause {
             #[allow(unused_variables)]
-            fn encode_raw<B>(&self, buf: &mut B) where B: ::prost::bytes::BufMut {
+            fn encode_raw<B>(&self, buf: &mut B) where B: crate::alligator::proto_google_08::bytes::BufMut {
                 #(#encode)*
             }
 
@@ -182,15 +182,15 @@ fn try_message(input: TokenStream) -> Result<TokenStream, Error> {
             fn merge_field<B>(
                 &mut self,
                 tag: u32,
-                wire_type: ::prost::encoding::WireType,
+                wire_type: crate::alligator::proto_google_08::encoding::WireType,
                 buf: &mut B,
-                ctx: ::prost::encoding::DecodeContext,
-            ) -> ::core::result::Result<(), ::prost::DecodeError>
-            where B: ::prost::bytes::Buf {
+                ctx: crate::alligator::proto_google_08::encoding::DecodeContext,
+            ) -> ::core::result::Result<(), crate::alligator::proto_google_08::DecodeError>
+            where B: crate::alligator::proto_google_08::bytes::Buf {
                 #struct_name
                 match tag {
                     #(#merge)*
-                    _ => ::prost::encoding::skip_field(wire_type, tag, buf, ctx),
+                    _ => crate::alligator::proto_google_08::encoding::skip_field(wire_type, tag, buf, ctx),
                 }
             }
 
@@ -424,7 +424,7 @@ fn try_oneof(input: TokenStream) -> Result<TokenStream, Error> {
 
     let expanded = quote! {
         impl #impl_generics #ident #ty_generics #where_clause {
-            pub fn encode<B>(&self, buf: &mut B) where B: ::prost::bytes::BufMut {
+            pub fn encode<B>(&self, buf: &mut B) where B: crate::alligator::proto_google_08::bytes::BufMut {
                 match *self {
                     #(#encode,)*
                 }
@@ -433,11 +433,11 @@ fn try_oneof(input: TokenStream) -> Result<TokenStream, Error> {
             pub fn merge<B>(
                 field: &mut ::core::option::Option<#ident #ty_generics>,
                 tag: u32,
-                wire_type: ::prost::encoding::WireType,
+                wire_type: crate::alligator::proto_google_08::encoding::WireType,
                 buf: &mut B,
-                ctx: ::prost::encoding::DecodeContext,
-            ) -> ::core::result::Result<(), ::prost::DecodeError>
-            where B: ::prost::bytes::Buf {
+                ctx: crate::alligator::proto_google_08::encoding::DecodeContext,
+            ) -> ::core::result::Result<(), crate::alligator::proto_google_08::DecodeError>
+            where B: crate::alligator::proto_google_08::bytes::Buf {
                 match tag {
                     #(#merge,)*
                     _ => unreachable!(concat!("invalid ", stringify!(#ident), " tag: {}"), tag),

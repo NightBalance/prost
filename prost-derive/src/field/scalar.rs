@@ -112,7 +112,7 @@ impl Field {
             Kind::Repeated => quote!(encode_repeated),
             Kind::Packed => quote!(encode_packed),
         };
-        let encode_fn = quote!(::prost::encoding::#module::#encode_fn);
+        let encode_fn = quote!(crate::alligator::proto_google_08::encoding::#module::#encode_fn);
         let tag = self.tag;
 
         match self.kind {
@@ -143,7 +143,7 @@ impl Field {
             Kind::Plain(..) | Kind::Optional(..) | Kind::Required(..) => quote!(merge),
             Kind::Repeated | Kind::Packed => quote!(merge_repeated),
         };
-        let merge_fn = quote!(::prost::encoding::#module::#merge_fn);
+        let merge_fn = quote!(crate::alligator::proto_google_08::encoding::#module::#merge_fn);
 
         match self.kind {
             Kind::Plain(..) | Kind::Required(..) | Kind::Repeated | Kind::Packed => quote! {
@@ -166,7 +166,7 @@ impl Field {
             Kind::Repeated => quote!(encoded_len_repeated),
             Kind::Packed => quote!(encoded_len_packed),
         };
-        let encoded_len_fn = quote!(::prost::encoding::#module::#encoded_len_fn);
+        let encoded_len_fn = quote!(crate::alligator::proto_google_08::encoding::#module::#encoded_len_fn);
         let tag = self.tag;
 
         match self.kind {
@@ -208,7 +208,7 @@ impl Field {
         match self.kind {
             Kind::Plain(ref value) | Kind::Required(ref value) => value.owned(),
             Kind::Optional(_) => quote!(::core::option::Option::None),
-            Kind::Repeated | Kind::Packed => quote!(::prost::alloc::vec::Vec::new()),
+            Kind::Repeated | Kind::Packed => quote!(crate::alligator::proto_google_08::alloc::vec::Vec::new()),
         }
     }
 
@@ -250,7 +250,7 @@ impl Field {
             },
             Kind::Repeated | Kind::Packed => {
                 quote! {
-                    struct #wrapper_name<'a>(&'a ::prost::alloc::vec::Vec<#inner_ty>);
+                    struct #wrapper_name<'a>(&'a crate::alligator::proto_google_08::alloc::vec::Vec<#inner_ty>);
                     impl<'a> ::core::fmt::Debug for #wrapper_name<'a> {
                         fn fmt(&self, f: &mut ::core::fmt::Formatter) -> ::core::fmt::Result {
                             let mut vec_builder = f.debug_list();
@@ -402,8 +402,8 @@ impl BytesTy {
 
     fn rust_type(&self) -> TokenStream {
         match self {
-            BytesTy::Vec => quote! { ::prost::alloc::vec::Vec<u8> },
-            BytesTy::Bytes => quote! { ::prost::bytes::Bytes },
+            BytesTy::Vec => quote! { crate::alligator::proto_google_08::alloc::vec::Vec<u8> },
+            BytesTy::Bytes => quote! { crate::alligator::proto_google_08::bytes::Bytes },
         }
     }
 }
@@ -519,7 +519,7 @@ impl Ty {
     // TODO: rename to 'owned_type'.
     pub fn rust_type(&self) -> TokenStream {
         match self {
-            Ty::String => quote!(::prost::alloc::string::String),
+            Ty::String => quote!(crate::alligator::proto_google_08::alloc::string::String),
             Ty::Bytes(ty) => ty.rust_type(),
             _ => self.rust_ref_type(),
         }
@@ -766,7 +766,7 @@ impl DefaultValue {
     pub fn owned(&self) -> TokenStream {
         match *self {
             DefaultValue::String(ref value) if value.is_empty() => {
-                quote!(::prost::alloc::string::String::new())
+                quote!(crate::alligator::proto_google_08::alloc::string::String::new())
             }
             DefaultValue::String(ref value) => quote!(#value.into()),
             DefaultValue::Bytes(ref value) if value.is_empty() => quote!(Default::default()),

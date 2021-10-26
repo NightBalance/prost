@@ -1,38 +1,38 @@
 /// The protocol compiler can output a FileDescriptorSet containing the .proto
 /// files it parses.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct FileDescriptorSet {
     #[prost(message, repeated, tag="1")]
-    pub file: ::prost::alloc::vec::Vec<FileDescriptorProto>,
+    pub file: crate::alligator::proto_google_08::alloc::vec::Vec<FileDescriptorProto>,
 }
 /// Describes a complete .proto file.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct FileDescriptorProto {
     /// file name, relative to root of source tree
     #[prost(string, optional, tag="1")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    pub name: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// e.g. "foo", "foo.bar", etc.
     #[prost(string, optional, tag="2")]
-    pub package: ::core::option::Option<::prost::alloc::string::String>,
+    pub package: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// Names of files imported by this file.
     #[prost(string, repeated, tag="3")]
-    pub dependency: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    pub dependency: crate::alligator::proto_google_08::alloc::vec::Vec<crate::alligator::proto_google_08::alloc::string::String>,
     /// Indexes of the public imported files in the dependency list above.
     #[prost(int32, repeated, packed="false", tag="10")]
-    pub public_dependency: ::prost::alloc::vec::Vec<i32>,
+    pub public_dependency: crate::alligator::proto_google_08::alloc::vec::Vec<i32>,
     /// Indexes of the weak imported files in the dependency list.
     /// For Google-internal migration only. Do not use.
     #[prost(int32, repeated, packed="false", tag="11")]
-    pub weak_dependency: ::prost::alloc::vec::Vec<i32>,
+    pub weak_dependency: crate::alligator::proto_google_08::alloc::vec::Vec<i32>,
     /// All top-level definitions in this file.
     #[prost(message, repeated, tag="4")]
-    pub message_type: ::prost::alloc::vec::Vec<DescriptorProto>,
+    pub message_type: crate::alligator::proto_google_08::alloc::vec::Vec<DescriptorProto>,
     #[prost(message, repeated, tag="5")]
-    pub enum_type: ::prost::alloc::vec::Vec<EnumDescriptorProto>,
+    pub enum_type: crate::alligator::proto_google_08::alloc::vec::Vec<EnumDescriptorProto>,
     #[prost(message, repeated, tag="6")]
-    pub service: ::prost::alloc::vec::Vec<ServiceDescriptorProto>,
+    pub service: crate::alligator::proto_google_08::alloc::vec::Vec<ServiceDescriptorProto>,
     #[prost(message, repeated, tag="7")]
-    pub extension: ::prost::alloc::vec::Vec<FieldDescriptorProto>,
+    pub extension: crate::alligator::proto_google_08::alloc::vec::Vec<FieldDescriptorProto>,
     #[prost(message, optional, tag="8")]
     pub options: ::core::option::Option<FileOptions>,
     /// This field contains optional information about the original source code.
@@ -44,37 +44,37 @@ pub struct FileDescriptorProto {
     /// The syntax of the proto file.
     /// The supported values are "proto2" and "proto3".
     #[prost(string, optional, tag="12")]
-    pub syntax: ::core::option::Option<::prost::alloc::string::String>,
+    pub syntax: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
 }
 /// Describes a message type.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct DescriptorProto {
     #[prost(string, optional, tag="1")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    pub name: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     #[prost(message, repeated, tag="2")]
-    pub field: ::prost::alloc::vec::Vec<FieldDescriptorProto>,
+    pub field: crate::alligator::proto_google_08::alloc::vec::Vec<FieldDescriptorProto>,
     #[prost(message, repeated, tag="6")]
-    pub extension: ::prost::alloc::vec::Vec<FieldDescriptorProto>,
+    pub extension: crate::alligator::proto_google_08::alloc::vec::Vec<FieldDescriptorProto>,
     #[prost(message, repeated, tag="3")]
-    pub nested_type: ::prost::alloc::vec::Vec<DescriptorProto>,
+    pub nested_type: crate::alligator::proto_google_08::alloc::vec::Vec<DescriptorProto>,
     #[prost(message, repeated, tag="4")]
-    pub enum_type: ::prost::alloc::vec::Vec<EnumDescriptorProto>,
+    pub enum_type: crate::alligator::proto_google_08::alloc::vec::Vec<EnumDescriptorProto>,
     #[prost(message, repeated, tag="5")]
-    pub extension_range: ::prost::alloc::vec::Vec<descriptor_proto::ExtensionRange>,
+    pub extension_range: crate::alligator::proto_google_08::alloc::vec::Vec<descriptor_proto::ExtensionRange>,
     #[prost(message, repeated, tag="8")]
-    pub oneof_decl: ::prost::alloc::vec::Vec<OneofDescriptorProto>,
+    pub oneof_decl: crate::alligator::proto_google_08::alloc::vec::Vec<OneofDescriptorProto>,
     #[prost(message, optional, tag="7")]
     pub options: ::core::option::Option<MessageOptions>,
     #[prost(message, repeated, tag="9")]
-    pub reserved_range: ::prost::alloc::vec::Vec<descriptor_proto::ReservedRange>,
+    pub reserved_range: crate::alligator::proto_google_08::alloc::vec::Vec<descriptor_proto::ReservedRange>,
     /// Reserved field names, which may not be used by fields in the same message.
     /// A given name may only be reserved once.
     #[prost(string, repeated, tag="10")]
-    pub reserved_name: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    pub reserved_name: crate::alligator::proto_google_08::alloc::vec::Vec<crate::alligator::proto_google_08::alloc::string::String>,
 }
 /// Nested message and enum types in `DescriptorProto`.
 pub mod descriptor_proto {
-    #[derive(Clone, PartialEq, ::prost::Message)]
+    #[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
     pub struct ExtensionRange {
         /// Inclusive.
         #[prost(int32, optional, tag="1")]
@@ -88,7 +88,7 @@ pub mod descriptor_proto {
     /// Range of reserved tag numbers. Reserved tag numbers may not be used by
     /// fields or extension ranges in the same message. Reserved ranges may
     /// not overlap.
-    #[derive(Clone, PartialEq, ::prost::Message)]
+    #[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
     pub struct ReservedRange {
         /// Inclusive.
         #[prost(int32, optional, tag="1")]
@@ -98,17 +98,17 @@ pub mod descriptor_proto {
         pub end: ::core::option::Option<i32>,
     }
 }
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct ExtensionRangeOptions {
     /// The parser stores options it doesn't recognize here. See above.
     #[prost(message, repeated, tag="999")]
-    pub uninterpreted_option: ::prost::alloc::vec::Vec<UninterpretedOption>,
+    pub uninterpreted_option: crate::alligator::proto_google_08::alloc::vec::Vec<UninterpretedOption>,
 }
 /// Describes a field within a message.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct FieldDescriptorProto {
     #[prost(string, optional, tag="1")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    pub name: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     #[prost(int32, optional, tag="3")]
     pub number: ::core::option::Option<i32>,
     #[prost(enumeration="field_descriptor_proto::Label", optional, tag="4")]
@@ -123,18 +123,18 @@ pub struct FieldDescriptorProto {
     /// message are searched, then within the parent, on up to the root
     /// namespace).
     #[prost(string, optional, tag="6")]
-    pub type_name: ::core::option::Option<::prost::alloc::string::String>,
+    pub type_name: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// For extensions, this is the name of the type being extended.  It is
     /// resolved in the same manner as type_name.
     #[prost(string, optional, tag="2")]
-    pub extendee: ::core::option::Option<::prost::alloc::string::String>,
+    pub extendee: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// For numeric types, contains the original text representation of the value.
     /// For booleans, "true" or "false".
     /// For strings, contains the default text contents (not escaped in any way).
     /// For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
     /// TODO(kenton):  Base-64 encode?
     #[prost(string, optional, tag="7")]
-    pub default_value: ::core::option::Option<::prost::alloc::string::String>,
+    pub default_value: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// If set, gives the index of a oneof in the containing type's oneof_decl
     /// list.  This field is a member of that oneof.
     #[prost(int32, optional, tag="9")]
@@ -144,7 +144,7 @@ pub struct FieldDescriptorProto {
     /// will be used. Otherwise, it's deduced from the field's name by converting
     /// it to camelCase.
     #[prost(string, optional, tag="10")]
-    pub json_name: ::core::option::Option<::prost::alloc::string::String>,
+    pub json_name: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     #[prost(message, optional, tag="8")]
     pub options: ::core::option::Option<FieldOptions>,
     /// If true, this is a proto3 "optional". When a proto3 field is optional, it
@@ -173,7 +173,7 @@ pub struct FieldDescriptorProto {
 }
 /// Nested message and enum types in `FieldDescriptorProto`.
 pub mod field_descriptor_proto {
-    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, crate::alligator::proto_google_08::Enumeration)]
     #[repr(i32)]
     pub enum Type {
         /// 0 is reserved for errors.
@@ -209,7 +209,7 @@ pub mod field_descriptor_proto {
         /// Uses ZigZag encoding.
         Sint64 = 18,
     }
-    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, crate::alligator::proto_google_08::Enumeration)]
     #[repr(i32)]
     pub enum Label {
         /// 0 is reserved for errors
@@ -219,31 +219,31 @@ pub mod field_descriptor_proto {
     }
 }
 /// Describes a oneof.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct OneofDescriptorProto {
     #[prost(string, optional, tag="1")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    pub name: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     #[prost(message, optional, tag="2")]
     pub options: ::core::option::Option<OneofOptions>,
 }
 /// Describes an enum type.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct EnumDescriptorProto {
     #[prost(string, optional, tag="1")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    pub name: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     #[prost(message, repeated, tag="2")]
-    pub value: ::prost::alloc::vec::Vec<EnumValueDescriptorProto>,
+    pub value: crate::alligator::proto_google_08::alloc::vec::Vec<EnumValueDescriptorProto>,
     #[prost(message, optional, tag="3")]
     pub options: ::core::option::Option<EnumOptions>,
     /// Range of reserved numeric values. Reserved numeric values may not be used
     /// by enum values in the same enum declaration. Reserved ranges may not
     /// overlap.
     #[prost(message, repeated, tag="4")]
-    pub reserved_range: ::prost::alloc::vec::Vec<enum_descriptor_proto::EnumReservedRange>,
+    pub reserved_range: crate::alligator::proto_google_08::alloc::vec::Vec<enum_descriptor_proto::EnumReservedRange>,
     /// Reserved enum value names, which may not be reused. A given name may only
     /// be reserved once.
     #[prost(string, repeated, tag="5")]
-    pub reserved_name: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    pub reserved_name: crate::alligator::proto_google_08::alloc::vec::Vec<crate::alligator::proto_google_08::alloc::string::String>,
 }
 /// Nested message and enum types in `EnumDescriptorProto`.
 pub mod enum_descriptor_proto {
@@ -253,7 +253,7 @@ pub mod enum_descriptor_proto {
     /// Note that this is distinct from DescriptorProto.ReservedRange in that it
     /// is inclusive such that it can appropriately represent the entire int32
     /// domain.
-    #[derive(Clone, PartialEq, ::prost::Message)]
+    #[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
     pub struct EnumReservedRange {
         /// Inclusive.
         #[prost(int32, optional, tag="1")]
@@ -264,36 +264,36 @@ pub mod enum_descriptor_proto {
     }
 }
 /// Describes a value within an enum.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct EnumValueDescriptorProto {
     #[prost(string, optional, tag="1")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    pub name: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     #[prost(int32, optional, tag="2")]
     pub number: ::core::option::Option<i32>,
     #[prost(message, optional, tag="3")]
     pub options: ::core::option::Option<EnumValueOptions>,
 }
 /// Describes a service.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct ServiceDescriptorProto {
     #[prost(string, optional, tag="1")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    pub name: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     #[prost(message, repeated, tag="2")]
-    pub method: ::prost::alloc::vec::Vec<MethodDescriptorProto>,
+    pub method: crate::alligator::proto_google_08::alloc::vec::Vec<MethodDescriptorProto>,
     #[prost(message, optional, tag="3")]
     pub options: ::core::option::Option<ServiceOptions>,
 }
 /// Describes a method of a service.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct MethodDescriptorProto {
     #[prost(string, optional, tag="1")]
-    pub name: ::core::option::Option<::prost::alloc::string::String>,
+    pub name: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// Input and output type names.  These are resolved in the same way as
     /// FieldDescriptorProto.type_name, but must refer to a message type.
     #[prost(string, optional, tag="2")]
-    pub input_type: ::core::option::Option<::prost::alloc::string::String>,
+    pub input_type: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     #[prost(string, optional, tag="3")]
-    pub output_type: ::core::option::Option<::prost::alloc::string::String>,
+    pub output_type: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     #[prost(message, optional, tag="4")]
     pub options: ::core::option::Option<MethodOptions>,
     /// Identifies if client streams multiple client messages
@@ -335,21 +335,21 @@ pub struct MethodDescriptorProto {
 //   If this turns out to be popular, a web service will be set up
 //   to automatically assign option numbers.
 
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct FileOptions {
     /// Sets the Java package where classes generated from this .proto will be
     /// placed.  By default, the proto package is used, but this is often
     /// inappropriate because proto packages do not normally start with backwards
     /// domain names.
     #[prost(string, optional, tag="1")]
-    pub java_package: ::core::option::Option<::prost::alloc::string::String>,
+    pub java_package: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// If set, all the classes from the .proto file are wrapped in a single
     /// outer class with the given name.  This applies to both Proto1
     /// (equivalent to the old "--one_java_file" option) and Proto2 (where
     /// a .proto always translates to a single class, but you may want to
     /// explicitly choose the class name).
     #[prost(string, optional, tag="8")]
-    pub java_outer_classname: ::core::option::Option<::prost::alloc::string::String>,
+    pub java_outer_classname: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// If set true, then the Java code generator will generate a separate .java
     /// file for each top-level message, enum, and service defined in the .proto
     /// file.  Thus, these types will *not* be nested inside the outer class
@@ -378,7 +378,7 @@ pub struct FileOptions {
     ///   - Otherwise, the package statement in the .proto file, if present.
     ///   - Otherwise, the basename of the .proto file, without extension.
     #[prost(string, optional, tag="11")]
-    pub go_package: ::core::option::Option<::prost::alloc::string::String>,
+    pub go_package: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// Should generic services be generated in each language?  "Generic" services
     /// are not specific to any particular RPC system.  They are generated by the
     /// main code generators in each language (without additional plugins).
@@ -410,44 +410,44 @@ pub struct FileOptions {
     /// Sets the objective c class prefix which is prepended to all objective c
     /// generated classes from this .proto. There is no default.
     #[prost(string, optional, tag="36")]
-    pub objc_class_prefix: ::core::option::Option<::prost::alloc::string::String>,
+    pub objc_class_prefix: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// Namespace for generated classes; defaults to the package.
     #[prost(string, optional, tag="37")]
-    pub csharp_namespace: ::core::option::Option<::prost::alloc::string::String>,
+    pub csharp_namespace: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// By default Swift generators will take the proto package and CamelCase it
     /// replacing '.' with underscore and use that to prefix the types/symbols
     /// defined. When this options is provided, they will use this value instead
     /// to prefix the types/symbols defined.
     #[prost(string, optional, tag="39")]
-    pub swift_prefix: ::core::option::Option<::prost::alloc::string::String>,
+    pub swift_prefix: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// Sets the php class prefix which is prepended to all php generated classes
     /// from this .proto. Default is empty.
     #[prost(string, optional, tag="40")]
-    pub php_class_prefix: ::core::option::Option<::prost::alloc::string::String>,
+    pub php_class_prefix: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// Use this option to change the namespace of php generated classes. Default
     /// is empty. When this option is empty, the package name will be used for
     /// determining the namespace.
     #[prost(string, optional, tag="41")]
-    pub php_namespace: ::core::option::Option<::prost::alloc::string::String>,
+    pub php_namespace: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// Use this option to change the namespace of php generated metadata classes.
     /// Default is empty. When this option is empty, the proto file name will be
     /// used for determining the namespace.
     #[prost(string, optional, tag="44")]
-    pub php_metadata_namespace: ::core::option::Option<::prost::alloc::string::String>,
+    pub php_metadata_namespace: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// Use this option to change the package of ruby generated classes. Default
     /// is empty. When this option is not set, the package name will be used for
     /// determining the ruby package.
     #[prost(string, optional, tag="45")]
-    pub ruby_package: ::core::option::Option<::prost::alloc::string::String>,
+    pub ruby_package: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     /// The parser stores options it doesn't recognize here.
     /// See the documentation for the "Options" section above.
     #[prost(message, repeated, tag="999")]
-    pub uninterpreted_option: ::prost::alloc::vec::Vec<UninterpretedOption>,
+    pub uninterpreted_option: crate::alligator::proto_google_08::alloc::vec::Vec<UninterpretedOption>,
 }
 /// Nested message and enum types in `FileOptions`.
 pub mod file_options {
     /// Generated classes can be optimized for speed or code size.
-    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, crate::alligator::proto_google_08::Enumeration)]
     #[repr(i32)]
     pub enum OptimizeMode {
         /// Generate complete code for parsing, serialization,
@@ -460,7 +460,7 @@ pub mod file_options {
         LiteRuntime = 3,
     }
 }
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct MessageOptions {
     /// Set true to use the old proto1 MessageSet wire format for extensions.
     /// This is provided for backwards-compatibility with the MessageSet wire
@@ -518,9 +518,9 @@ pub struct MessageOptions {
     pub map_entry: ::core::option::Option<bool>,
     /// The parser stores options it doesn't recognize here. See above.
     #[prost(message, repeated, tag="999")]
-    pub uninterpreted_option: ::prost::alloc::vec::Vec<UninterpretedOption>,
+    pub uninterpreted_option: crate::alligator::proto_google_08::alloc::vec::Vec<UninterpretedOption>,
 }
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct FieldOptions {
     /// The ctype option instructs the C++ code generator to use a different
     /// representation of the field than it normally would.  See the specific
@@ -589,11 +589,11 @@ pub struct FieldOptions {
     pub weak: ::core::option::Option<bool>,
     /// The parser stores options it doesn't recognize here. See above.
     #[prost(message, repeated, tag="999")]
-    pub uninterpreted_option: ::prost::alloc::vec::Vec<UninterpretedOption>,
+    pub uninterpreted_option: crate::alligator::proto_google_08::alloc::vec::Vec<UninterpretedOption>,
 }
 /// Nested message and enum types in `FieldOptions`.
 pub mod field_options {
-    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, crate::alligator::proto_google_08::Enumeration)]
     #[repr(i32)]
     pub enum CType {
         /// Default mode.
@@ -601,7 +601,7 @@ pub mod field_options {
         Cord = 1,
         StringPiece = 2,
     }
-    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, crate::alligator::proto_google_08::Enumeration)]
     #[repr(i32)]
     pub enum JsType {
         /// Use the default type.
@@ -612,13 +612,13 @@ pub mod field_options {
         JsNumber = 2,
     }
 }
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct OneofOptions {
     /// The parser stores options it doesn't recognize here. See above.
     #[prost(message, repeated, tag="999")]
-    pub uninterpreted_option: ::prost::alloc::vec::Vec<UninterpretedOption>,
+    pub uninterpreted_option: crate::alligator::proto_google_08::alloc::vec::Vec<UninterpretedOption>,
 }
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct EnumOptions {
     /// Set this option to true to allow mapping different tag names to the same
     /// value.
@@ -632,9 +632,9 @@ pub struct EnumOptions {
     pub deprecated: ::core::option::Option<bool>,
     /// The parser stores options it doesn't recognize here. See above.
     #[prost(message, repeated, tag="999")]
-    pub uninterpreted_option: ::prost::alloc::vec::Vec<UninterpretedOption>,
+    pub uninterpreted_option: crate::alligator::proto_google_08::alloc::vec::Vec<UninterpretedOption>,
 }
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct EnumValueOptions {
     /// Is this enum value deprecated?
     /// Depending on the target platform, this can emit Deprecated annotations
@@ -644,9 +644,9 @@ pub struct EnumValueOptions {
     pub deprecated: ::core::option::Option<bool>,
     /// The parser stores options it doesn't recognize here. See above.
     #[prost(message, repeated, tag="999")]
-    pub uninterpreted_option: ::prost::alloc::vec::Vec<UninterpretedOption>,
+    pub uninterpreted_option: crate::alligator::proto_google_08::alloc::vec::Vec<UninterpretedOption>,
 }
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct ServiceOptions {
     // Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
     //   framework.  We apologize for hoarding these numbers to ourselves, but
@@ -661,9 +661,9 @@ pub struct ServiceOptions {
     pub deprecated: ::core::option::Option<bool>,
     /// The parser stores options it doesn't recognize here. See above.
     #[prost(message, repeated, tag="999")]
-    pub uninterpreted_option: ::prost::alloc::vec::Vec<UninterpretedOption>,
+    pub uninterpreted_option: crate::alligator::proto_google_08::alloc::vec::Vec<UninterpretedOption>,
 }
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct MethodOptions {
     // Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
     //   framework.  We apologize for hoarding these numbers to ourselves, but
@@ -680,14 +680,14 @@ pub struct MethodOptions {
     pub idempotency_level: ::core::option::Option<i32>,
     /// The parser stores options it doesn't recognize here. See above.
     #[prost(message, repeated, tag="999")]
-    pub uninterpreted_option: ::prost::alloc::vec::Vec<UninterpretedOption>,
+    pub uninterpreted_option: crate::alligator::proto_google_08::alloc::vec::Vec<UninterpretedOption>,
 }
 /// Nested message and enum types in `MethodOptions`.
 pub mod method_options {
     /// Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
     /// or neither? HTTP based RPC implementation may choose GET verb for safe
     /// methods, and PUT verb for idempotent methods instead of the default POST.
-    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, crate::alligator::proto_google_08::Enumeration)]
     #[repr(i32)]
     pub enum IdempotencyLevel {
         IdempotencyUnknown = 0,
@@ -703,14 +703,14 @@ pub mod method_options {
 /// options protos in descriptor objects (e.g. returned by Descriptor::options(),
 /// or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
 /// in them.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct UninterpretedOption {
     #[prost(message, repeated, tag="2")]
-    pub name: ::prost::alloc::vec::Vec<uninterpreted_option::NamePart>,
+    pub name: crate::alligator::proto_google_08::alloc::vec::Vec<uninterpreted_option::NamePart>,
     /// The value of the uninterpreted option, in whatever type the tokenizer
     /// identified it as during parsing. Exactly one of these should be set.
     #[prost(string, optional, tag="3")]
-    pub identifier_value: ::core::option::Option<::prost::alloc::string::String>,
+    pub identifier_value: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
     #[prost(uint64, optional, tag="4")]
     pub positive_int_value: ::core::option::Option<u64>,
     #[prost(int64, optional, tag="5")]
@@ -718,9 +718,9 @@ pub struct UninterpretedOption {
     #[prost(double, optional, tag="6")]
     pub double_value: ::core::option::Option<f64>,
     #[prost(bytes="vec", optional, tag="7")]
-    pub string_value: ::core::option::Option<::prost::alloc::vec::Vec<u8>>,
+    pub string_value: ::core::option::Option<crate::alligator::proto_google_08::alloc::vec::Vec<u8>>,
     #[prost(string, optional, tag="8")]
-    pub aggregate_value: ::core::option::Option<::prost::alloc::string::String>,
+    pub aggregate_value: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
 }
 /// Nested message and enum types in `UninterpretedOption`.
 pub mod uninterpreted_option {
@@ -729,10 +729,10 @@ pub mod uninterpreted_option {
     /// extension (denoted with parentheses in options specs in .proto files).
     /// E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
     /// "foo.(bar.baz).qux".
-    #[derive(Clone, PartialEq, ::prost::Message)]
+    #[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
     pub struct NamePart {
         #[prost(string, required, tag="1")]
-        pub name_part: ::prost::alloc::string::String,
+        pub name_part: crate::alligator::proto_google_08::alloc::string::String,
         #[prost(bool, required, tag="2")]
         pub is_extension: bool,
     }
@@ -742,7 +742,7 @@ pub mod uninterpreted_option {
 
 /// Encapsulates information about the original source file from which a
 /// FileDescriptorProto was generated.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct SourceCodeInfo {
     /// A Location identifies a piece of source code in a .proto file which
     /// corresponds to a particular definition.  This information is intended
@@ -788,11 +788,11 @@ pub struct SourceCodeInfo {
     ///   ignore those that it doesn't understand, as more types of locations could
     ///   be recorded in the future.
     #[prost(message, repeated, tag="1")]
-    pub location: ::prost::alloc::vec::Vec<source_code_info::Location>,
+    pub location: crate::alligator::proto_google_08::alloc::vec::Vec<source_code_info::Location>,
 }
 /// Nested message and enum types in `SourceCodeInfo`.
 pub mod source_code_info {
-    #[derive(Clone, PartialEq, ::prost::Message)]
+    #[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
     pub struct Location {
         /// Identifies which part of the FileDescriptorProto was defined at this
         /// location.
@@ -818,14 +818,14 @@ pub mod source_code_info {
         /// this path refers to the whole field declaration (from the beginning
         /// of the label to the terminating semicolon).
         #[prost(int32, repeated, tag="1")]
-        pub path: ::prost::alloc::vec::Vec<i32>,
+        pub path: crate::alligator::proto_google_08::alloc::vec::Vec<i32>,
         /// Always has exactly three or four elements: start line, start column,
         /// end line (optional, otherwise assumed same as start line), end column.
         /// These are packed into a single field for efficiency.  Note that line
         /// and column numbers are zero-based -- typically you will want to add
         /// 1 to each before displaying to a user.
         #[prost(int32, repeated, tag="2")]
-        pub span: ::prost::alloc::vec::Vec<i32>,
+        pub span: crate::alligator::proto_google_08::alloc::vec::Vec<i32>,
         /// If this SourceCodeInfo represents a complete declaration, these are any
         /// comments appearing before and after the declaration which appear to be
         /// attached to the declaration.
@@ -874,34 +874,34 @@ pub mod source_code_info {
         ///
         ///   // ignored detached comments.
         #[prost(string, optional, tag="3")]
-        pub leading_comments: ::core::option::Option<::prost::alloc::string::String>,
+        pub leading_comments: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
         #[prost(string, optional, tag="4")]
-        pub trailing_comments: ::core::option::Option<::prost::alloc::string::String>,
+        pub trailing_comments: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
         #[prost(string, repeated, tag="6")]
-        pub leading_detached_comments: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+        pub leading_detached_comments: crate::alligator::proto_google_08::alloc::vec::Vec<crate::alligator::proto_google_08::alloc::string::String>,
     }
 }
 /// Describes the relationship between generated code and its original source
 /// file. A GeneratedCodeInfo message is associated with only one generated
 /// source file, but may contain references to different source .proto files.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct GeneratedCodeInfo {
     /// An Annotation connects some span of text in generated code to an element
     /// of its generating .proto file.
     #[prost(message, repeated, tag="1")]
-    pub annotation: ::prost::alloc::vec::Vec<generated_code_info::Annotation>,
+    pub annotation: crate::alligator::proto_google_08::alloc::vec::Vec<generated_code_info::Annotation>,
 }
 /// Nested message and enum types in `GeneratedCodeInfo`.
 pub mod generated_code_info {
-    #[derive(Clone, PartialEq, ::prost::Message)]
+    #[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
     pub struct Annotation {
         /// Identifies the element in the original source .proto file. This field
         /// is formatted the same as SourceCodeInfo.Location.path.
         #[prost(int32, repeated, tag="1")]
-        pub path: ::prost::alloc::vec::Vec<i32>,
+        pub path: crate::alligator::proto_google_08::alloc::vec::Vec<i32>,
         /// Identifies the filesystem path to the original source .proto.
         #[prost(string, optional, tag="2")]
-        pub source_file: ::core::option::Option<::prost::alloc::string::String>,
+        pub source_file: ::core::option::Option<crate::alligator::proto_google_08::alloc::string::String>,
         /// Identifies the starting offset in bytes in the generated code
         /// that relates to the identified object.
         #[prost(int32, optional, tag="3")]
@@ -996,7 +996,7 @@ pub mod generated_code_info {
 ///       "value": "1.212s"
 ///     }
 ///
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct Any {
     /// A URL/resource name that uniquely identifies the type of the serialized
     /// protocol buffer message. This string must contain at least
@@ -1027,35 +1027,35 @@ pub struct Any {
     /// used with implementation specific semantics.
     ///
     #[prost(string, tag="1")]
-    pub type_url: ::prost::alloc::string::String,
+    pub type_url: crate::alligator::proto_google_08::alloc::string::String,
     /// Must be a valid serialized protocol buffer of the above specified type.
     #[prost(bytes="vec", tag="2")]
-    pub value: ::prost::alloc::vec::Vec<u8>,
+    pub value: crate::alligator::proto_google_08::alloc::vec::Vec<u8>,
 }
 /// `SourceContext` represents information about the source of a
 /// protobuf element, like the file in which it is defined.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct SourceContext {
     /// The path-qualified name of the .proto file that contained the associated
     /// protobuf element.  For example: `"google/protobuf/source_context.proto"`.
     #[prost(string, tag="1")]
-    pub file_name: ::prost::alloc::string::String,
+    pub file_name: crate::alligator::proto_google_08::alloc::string::String,
 }
 /// A protocol buffer message type.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct Type {
     /// The fully qualified message name.
     #[prost(string, tag="1")]
-    pub name: ::prost::alloc::string::String,
+    pub name: crate::alligator::proto_google_08::alloc::string::String,
     /// The list of fields.
     #[prost(message, repeated, tag="2")]
-    pub fields: ::prost::alloc::vec::Vec<Field>,
+    pub fields: crate::alligator::proto_google_08::alloc::vec::Vec<Field>,
     /// The list of types appearing in `oneof` definitions in this type.
     #[prost(string, repeated, tag="3")]
-    pub oneofs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    pub oneofs: crate::alligator::proto_google_08::alloc::vec::Vec<crate::alligator::proto_google_08::alloc::string::String>,
     /// The protocol buffer options.
     #[prost(message, repeated, tag="4")]
-    pub options: ::prost::alloc::vec::Vec<Option>,
+    pub options: crate::alligator::proto_google_08::alloc::vec::Vec<Option>,
     /// The source context.
     #[prost(message, optional, tag="5")]
     pub source_context: ::core::option::Option<SourceContext>,
@@ -1064,7 +1064,7 @@ pub struct Type {
     pub syntax: i32,
 }
 /// A single field of a message type.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct Field {
     /// The field type.
     #[prost(enumeration="field::Kind", tag="1")]
@@ -1077,11 +1077,11 @@ pub struct Field {
     pub number: i32,
     /// The field name.
     #[prost(string, tag="4")]
-    pub name: ::prost::alloc::string::String,
+    pub name: crate::alligator::proto_google_08::alloc::string::String,
     /// The field type URL, without the scheme, for message or enumeration
     /// types. Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
     #[prost(string, tag="6")]
-    pub type_url: ::prost::alloc::string::String,
+    pub type_url: crate::alligator::proto_google_08::alloc::string::String,
     /// The index of the field type in `Type.oneofs`, for message or enumeration
     /// types. The first type has index 1; zero means the type is not in the list.
     #[prost(int32, tag="7")]
@@ -1091,18 +1091,18 @@ pub struct Field {
     pub packed: bool,
     /// The protocol buffer options.
     #[prost(message, repeated, tag="9")]
-    pub options: ::prost::alloc::vec::Vec<Option>,
+    pub options: crate::alligator::proto_google_08::alloc::vec::Vec<Option>,
     /// The field JSON name.
     #[prost(string, tag="10")]
-    pub json_name: ::prost::alloc::string::String,
+    pub json_name: crate::alligator::proto_google_08::alloc::string::String,
     /// The string value of the default value of this field. Proto2 syntax only.
     #[prost(string, tag="11")]
-    pub default_value: ::prost::alloc::string::String,
+    pub default_value: crate::alligator::proto_google_08::alloc::string::String,
 }
 /// Nested message and enum types in `Field`.
 pub mod field {
     /// Basic field types.
-    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, crate::alligator::proto_google_08::Enumeration)]
     #[repr(i32)]
     pub enum Kind {
         /// Field type unknown.
@@ -1145,7 +1145,7 @@ pub mod field {
         TypeSint64 = 18,
     }
     /// Whether a field is optional, required, or repeated.
-    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, crate::alligator::proto_google_08::Enumeration)]
     #[repr(i32)]
     pub enum Cardinality {
         /// For fields with unknown cardinality.
@@ -1159,17 +1159,17 @@ pub mod field {
     }
 }
 /// Enum type definition.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct Enum {
     /// Enum type name.
     #[prost(string, tag="1")]
-    pub name: ::prost::alloc::string::String,
+    pub name: crate::alligator::proto_google_08::alloc::string::String,
     /// Enum value definitions.
     #[prost(message, repeated, tag="2")]
-    pub enumvalue: ::prost::alloc::vec::Vec<EnumValue>,
+    pub enumvalue: crate::alligator::proto_google_08::alloc::vec::Vec<EnumValue>,
     /// Protocol buffer options.
     #[prost(message, repeated, tag="3")]
-    pub options: ::prost::alloc::vec::Vec<Option>,
+    pub options: crate::alligator::proto_google_08::alloc::vec::Vec<Option>,
     /// The source context.
     #[prost(message, optional, tag="4")]
     pub source_context: ::core::option::Option<SourceContext>,
@@ -1178,28 +1178,28 @@ pub struct Enum {
     pub syntax: i32,
 }
 /// Enum value definition.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct EnumValue {
     /// Enum value name.
     #[prost(string, tag="1")]
-    pub name: ::prost::alloc::string::String,
+    pub name: crate::alligator::proto_google_08::alloc::string::String,
     /// Enum value number.
     #[prost(int32, tag="2")]
     pub number: i32,
     /// Protocol buffer options.
     #[prost(message, repeated, tag="3")]
-    pub options: ::prost::alloc::vec::Vec<Option>,
+    pub options: crate::alligator::proto_google_08::alloc::vec::Vec<Option>,
 }
 /// A protocol buffer option, which can be attached to a message, field,
 /// enumeration, etc.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct Option {
     /// The option's name. For protobuf built-in options (options defined in
     /// descriptor.proto), this is the short name. For example, `"map_entry"`.
     /// For custom options, it should be the fully-qualified name. For example,
     /// `"google.api.http"`.
     #[prost(string, tag="1")]
-    pub name: ::prost::alloc::string::String,
+    pub name: crate::alligator::proto_google_08::alloc::string::String,
     /// The option's value packed in an Any message. If the value is a primitive,
     /// the corresponding wrapper type defined in google/protobuf/wrappers.proto
     /// should be used. If the value is an enum, it should be stored as an int32
@@ -1208,7 +1208,7 @@ pub struct Option {
     pub value: ::core::option::Option<Any>,
 }
 /// The syntax in which a protocol buffer element is defined.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, crate::alligator::proto_google_08::Enumeration)]
 #[repr(i32)]
 pub enum Syntax {
     /// Syntax `proto2`.
@@ -1225,18 +1225,18 @@ pub enum Syntax {
 /// sometimes simply referred to as "APIs" in other contexts, such as the name of
 /// this message itself. See https://cloud.google.com/apis/design/glossary for
 /// detailed terminology.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct Api {
     /// The fully qualified name of this interface, including package name
     /// followed by the interface's simple name.
     #[prost(string, tag="1")]
-    pub name: ::prost::alloc::string::String,
+    pub name: crate::alligator::proto_google_08::alloc::string::String,
     /// The methods of this interface, in unspecified order.
     #[prost(message, repeated, tag="2")]
-    pub methods: ::prost::alloc::vec::Vec<Method>,
+    pub methods: crate::alligator::proto_google_08::alloc::vec::Vec<Method>,
     /// Any metadata attached to the interface.
     #[prost(message, repeated, tag="3")]
-    pub options: ::prost::alloc::vec::Vec<Option>,
+    pub options: crate::alligator::proto_google_08::alloc::vec::Vec<Option>,
     /// A version string for this interface. If specified, must have the form
     /// `major-version.minor-version`, as in `1.10`. If the minor version is
     /// omitted, it defaults to zero. If the entire version field is empty, the
@@ -1259,39 +1259,39 @@ pub struct Api {
     ///
     ///
     #[prost(string, tag="4")]
-    pub version: ::prost::alloc::string::String,
+    pub version: crate::alligator::proto_google_08::alloc::string::String,
     /// Source context for the protocol buffer service represented by this
     /// message.
     #[prost(message, optional, tag="5")]
     pub source_context: ::core::option::Option<SourceContext>,
     /// Included interfaces. See [Mixin][].
     #[prost(message, repeated, tag="6")]
-    pub mixins: ::prost::alloc::vec::Vec<Mixin>,
+    pub mixins: crate::alligator::proto_google_08::alloc::vec::Vec<Mixin>,
     /// The source syntax of the service.
     #[prost(enumeration="Syntax", tag="7")]
     pub syntax: i32,
 }
 /// Method represents a method of an API interface.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct Method {
     /// The simple name of this method.
     #[prost(string, tag="1")]
-    pub name: ::prost::alloc::string::String,
+    pub name: crate::alligator::proto_google_08::alloc::string::String,
     /// A URL of the input message type.
     #[prost(string, tag="2")]
-    pub request_type_url: ::prost::alloc::string::String,
+    pub request_type_url: crate::alligator::proto_google_08::alloc::string::String,
     /// If true, the request is streamed.
     #[prost(bool, tag="3")]
     pub request_streaming: bool,
     /// The URL of the output message type.
     #[prost(string, tag="4")]
-    pub response_type_url: ::prost::alloc::string::String,
+    pub response_type_url: crate::alligator::proto_google_08::alloc::string::String,
     /// If true, the response is streamed.
     #[prost(bool, tag="5")]
     pub response_streaming: bool,
     /// Any metadata attached to the method.
     #[prost(message, repeated, tag="6")]
-    pub options: ::prost::alloc::vec::Vec<Option>,
+    pub options: crate::alligator::proto_google_08::alloc::vec::Vec<Option>,
     /// The source syntax of this method.
     #[prost(enumeration="Syntax", tag="7")]
     pub syntax: i32,
@@ -1374,15 +1374,15 @@ pub struct Method {
 ///       }
 ///       ...
 ///     }
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct Mixin {
     /// The fully qualified name of the interface which is included.
     #[prost(string, tag="1")]
-    pub name: ::prost::alloc::string::String,
+    pub name: crate::alligator::proto_google_08::alloc::string::String,
     /// If non-empty specifies a path under which inherited HTTP paths
     /// are rooted.
     #[prost(string, tag="2")]
-    pub root: ::prost::alloc::string::String,
+    pub root: crate::alligator::proto_google_08::alloc::string::String,
 }
 /// A Duration represents a signed, fixed-length span of time represented
 /// as a count of seconds and fractions of seconds at nanosecond
@@ -1444,7 +1444,7 @@ pub struct Mixin {
 /// microsecond should be expressed in JSON format as "3.000001s".
 ///
 ///
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct Duration {
     /// Signed seconds of the span of time. Must be from -315,576,000,000
     /// to +315,576,000,000 inclusive. Note: these bounds are computed from:
@@ -1659,11 +1659,11 @@ pub struct Duration {
 /// The implementation of any API method which has a FieldMask type field in the
 /// request should verify the included field paths, and return an
 /// `INVALID_ARGUMENT` error if any path is unmappable.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct FieldMask {
     /// The set of field mask paths.
     #[prost(string, repeated, tag="1")]
-    pub paths: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    pub paths: crate::alligator::proto_google_08::alloc::vec::Vec<crate::alligator::proto_google_08::alloc::string::String>,
 }
 /// `Struct` represents a structured data value, consisting of fields
 /// which map to dynamically typed values. In some languages, `Struct`
@@ -1673,11 +1673,11 @@ pub struct FieldMask {
 /// with the proto support for the language.
 ///
 /// The JSON representation for `Struct` is JSON object.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct Struct {
     /// Unordered map of dynamically typed values.
     #[prost(btree_map="string, message", tag="1")]
-    pub fields: ::prost::alloc::collections::BTreeMap<::prost::alloc::string::String, Value>,
+    pub fields: crate::alligator::proto_google_08::alloc::collections::BTreeMap<crate::alligator::proto_google_08::alloc::string::String, Value>,
 }
 /// `Value` represents a dynamically typed value which can be either
 /// null, a number, a string, a boolean, a recursive struct value, or a
@@ -1685,7 +1685,7 @@ pub struct Struct {
 /// variants, absence of any variant indicates an error.
 ///
 /// The JSON representation for `Value` is JSON value.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct Value {
     /// The kind of value.
     #[prost(oneof="value::Kind", tags="1, 2, 3, 4, 5, 6")]
@@ -1694,7 +1694,7 @@ pub struct Value {
 /// Nested message and enum types in `Value`.
 pub mod value {
     /// The kind of value.
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    #[derive(Clone, PartialEq, crate::alligator::proto_google_08::Oneof)]
     pub enum Kind {
         /// Represents a null value.
         #[prost(enumeration="super::NullValue", tag="1")]
@@ -1704,7 +1704,7 @@ pub mod value {
         NumberValue(f64),
         /// Represents a string value.
         #[prost(string, tag="3")]
-        StringValue(::prost::alloc::string::String),
+        StringValue(crate::alligator::proto_google_08::alloc::string::String),
         /// Represents a boolean value.
         #[prost(bool, tag="4")]
         BoolValue(bool),
@@ -1719,17 +1719,17 @@ pub mod value {
 /// `ListValue` is a wrapper around a repeated field of values.
 ///
 /// The JSON representation for `ListValue` is JSON array.
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct ListValue {
     /// Repeated field of dynamically typed values.
     #[prost(message, repeated, tag="1")]
-    pub values: ::prost::alloc::vec::Vec<Value>,
+    pub values: crate::alligator::proto_google_08::alloc::vec::Vec<Value>,
 }
 /// `NullValue` is a singleton enumeration to represent the null value for the
 /// `Value` type union.
 ///
 ///  The JSON representation for `NullValue` is JSON `null`.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, crate::alligator::proto_google_08::Enumeration)]
 #[repr(i32)]
 pub enum NullValue {
     /// Null value.
@@ -1828,7 +1828,7 @@ pub enum NullValue {
 /// ) to obtain a formatter capable of generating timestamps in this format.
 ///
 ///
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, crate::alligator::proto_google_08::Message)]
 pub struct Timestamp {
     /// Represents seconds of UTC time since Unix epoch
     /// 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
